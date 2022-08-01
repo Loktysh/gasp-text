@@ -7,11 +7,16 @@ function animateSequence() {
         var str = '';
         var delay = 100;
       for (l = 0; l < letter.length; l++) {
-          if (letter.slice(l, l + 4) == '<br>' || letter.slice(l, l + 4) == '</b>') {
+          if (letter.slice(l, l + 4) == '<br>') {
             l += 4;
+            str += '<br>';
           }
           if (letter.slice(l, l + 3) == '<b>') {
             l += 3;
+        }
+        if (letter.slice(l, l + 4) == '</b>') {
+            l += 4;
+            str += '</b>';
           }
           if (letter[l] != ' ') {
                 str += '<span style="animation-delay:' + delay + 'ms; -moz-animation-delay:' + delay + 'ms; -webkit-animation-delay:' + delay + 'ms; ">' + letter[l] + '</span>';
